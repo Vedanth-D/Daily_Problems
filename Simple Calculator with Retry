@@ -1,0 +1,43 @@
+Runs in a loop — keeps accepting calculations until the user types "quit"
+Accepts input in the format: number operator number (e.g., 10 + 5)
+Supports +, -, *, /
+Handles division by zero gracefully
+If the input format is invalid, print an error and let the user try again (do not crash)
+
+SOLUTION:
+
+while True:
+  user_input = input("Enter calculation (or quit): ")
+
+  if user_input.lower() == "quit":
+    print("Goodbye")
+    break
+
+  format = user_input.split()
+
+  if len(format) != 3:
+    print("Invalid format. Use: number operator number")
+    continue
+
+  num1, operator, num2 = format
+
+  if not (num1.replace(".", "", 1).isdigit() and num2.replace(".", "", 1).isdigit()):
+    print("Numbers are invalid.")
+    continue
+
+  num1 = float(num1)
+  num2 = float(num2)
+
+  if operator == "+":
+    print("result =", num1 + num2)
+  elif operator == "-":
+    print("result =", num1 - num2)
+  elif operator == "*":
+    print("result =", num1 * num2)
+  elif operator == "/":
+    if num2 == 0:
+      print("Error. Zero division")
+      continue
+    print("result =", num1 / num2)
+  else:
+    print("Invalid operator. Use: +, -, *, /")
