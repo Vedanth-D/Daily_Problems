@@ -31,3 +31,20 @@ else:
   cost = (N * R1) + ((hours - N) * R2)
 
 print(cost)
+
+
+          OR
+
+R1 = int(input())
+N = int(input())
+R2 = int(input())
+X = int(input())
+
+hours = (X + 59) // 60     # ceil(a / b) = (a + b - 1) // b      a=x , b=60
+
+if hours <= N:
+    cost = hours * R1
+else:
+    cost = (N * R1) + ((hours - N) * R2)
+
+print(cost)
