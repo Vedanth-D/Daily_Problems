@@ -1,0 +1,35 @@
+while True:
+  user_input = input("Enter the positive number (or quit): ")
+
+  if user_input.lower() == "quit":
+    print("Goodbye!")
+    break
+
+  if not user_input.isdigit():
+    print("Invalid input. Please enter a valid integer.")
+    continue
+
+  number = int(user_input)
+
+  if number <= 0:
+    print("Please enter greater than 0.")
+    continue
+
+  steps = 0
+  peak = number
+
+  print(number, end="")
+
+  while number != 1:
+    if number % 2 == 0:
+      number //= 2
+    else:
+      number = 3 * number + 1
+    steps += 1
+
+    if number > peak:
+      peak = number
+
+    print(" -", number, end="")
+  print(f"\nsteps: {steps}")
+  print(f"peak value: {peak}")
