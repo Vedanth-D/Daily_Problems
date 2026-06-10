@@ -1,0 +1,33 @@
+For hiring a car, a travel agency charges R1 rupees per hour for the first N hours and then R2 rupees per hour. Given the total time of travel in minutes is X. The task is to find the total traveling cost in rupees.
+Note: While converting minutes into hours, ceiling value should be considered as the total number of hours.
+For example: If the total travelling time is 90 minutes,
+i.e. 1.5 hours, it must be considered as 2 hours
+Constraints:
+1 < R1 < R32< 100
+11
+1 < = N < = 10
+1 < = X < 10000
+inp:
+20  - R1
+4   - N in hours
+40  - R2
+300 - X in minutes
+
+SOLUTION.
+
+
+import math
+
+R1 = int(input())
+N = int(input())
+R2 = int(input())
+X = int(input())
+
+hours = math.ceil(X / 60)
+
+if hours <= N:
+  cost = hours * R1
+else:
+  cost = (N * R1) + ((hours - N) * R2)
+
+print(cost)
