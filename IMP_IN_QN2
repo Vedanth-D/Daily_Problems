@@ -1,0 +1,28 @@
+Dolly the Kid-O is learning to count using her fingers - being a Left Hander she uses her LEFT hand to count the numbers - her mother being a Tech Savvy gives this as a test to her Bro Rahul , who loves numbers, he cracks it in 3 minutes. Think like him.
+Thumb 	Index	Middle	Ring	Little
+   5     4	  3	 2        1
+Note : Counting begins from Little Finger to Thumb, Index to Little, Ring to Thumb and So on
+Input : Integer [ 1 to 10^7]
+Output : Name of the finger
+Examples:
+Input : 25
+Output : Little
+
+           SOLUTION:
+
+
+n = int(input())
+
+fingers = [
+    "little",
+    "Ring",
+    "Middle",
+    "Index",
+    "Thumb",
+    "Index",
+    "Middle",
+    "Ring"
+]
+
+print(fingers[(n - 1) % 8])
+
