@@ -1,0 +1,87 @@
+items = ["Rice", "Dal", "Oil"]
+prices = [450, 120, 210]
+
+total = 0
+for i in range(len(items)):
+  print("items:", items[i], "\tPrices: ", prices[i])
+  total += prices[i]
+
+print("Total prices: ", total)
+
+OUTPUT:
+items: Rice 	Prices:  450
+items: Dal 	Prices:  120
+items: Oil 	Prices:  210
+Total prices:  780
+
+
+2.
+
+n = int(input("Enter a number:"))
+squares = []
+
+for i in range(1, n + 1):
+  squares.append(i * i)             # (i ** 2)
+print(squares)
+
+OUTPUT:
+Enter a number:5
+[1, 4, 9, 16, 25]
+
+
+3.
+
+dmart = [
+    ["Rice", "Dal", "Oil"],          
+    ["Tomato", "Onion", "Potato"],  
+    ["Soap", "Shampoo", "Toothpaste"] 
+]
+print(", ".join(dmart[0]))
+print(dmart[1][1])
+
+OUTPUT:
+Rice, Dal, Oil
+Onion
+
+
+4.
+
+Menu_cart = []
+
+while True:
+  choice = input("Enter add/view/remove/quit: ").lower()
+
+  if choice == "add":
+    item = input("Enter item: ")
+    Menu_cart.append(item)
+  elif choice == "view":
+    print(Menu_cart)
+  elif choice == "remove":
+    item = input("Enter the item to remove: ")
+    if item in Menu_cart:
+      Menu_cart.remove(item)
+    else:
+      print("Item not found")
+  elif choice == "quit":
+    print(Menu_cart)
+    break
+
+  else:
+    print("Invalid input")
+
+
+5.
+
+a = ["Rice", "Dal"]
+b = a
+b.append("Oil")
+print(id(a))
+print(id(b))
+b = a.copy()
+print(id(b))
+# creates a new list object so id changes.
+
+OUTPUT:
+132620489798848
+132620489798848
+132620896968896
