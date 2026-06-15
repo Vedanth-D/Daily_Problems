@@ -1,0 +1,56 @@
+Rearrange the array such that all ODD numbers are in the front followed by all even numbers
+Note: Order of appearance should be maintained, do not use new array
+
+Sample : 
+
+{42,34,55,78,11,23,45,88,90,14,56,77,23,26,27,90,28,51}
+{55,11,23,45,77,23,27,51,42,34,78,88,90,14,56,26,90,28}
+
+SOLUTION:
+
+
+arr = [42,34,55,78,11,23,45,88,90,14,56,77,23,26,27,90,28,51]
+
+odd = []
+even = []
+
+for num in arr:
+    if num % 2 != 0:
+        odd.append(num)
+    else:
+        even.append(num)
+
+arr = odd + even
+
+print(arr)
+
+
+    OR
+
+arr = [42,34,55,78,11,23,45,88,90,14,56,77,23,26,27,90,28,51]
+
+i = 0
+
+while i < len(arr):
+    if arr[i] % 2 != 0:
+        i += 1
+        continue
+
+    j = i + 1
+
+    while j < len(arr) and arr[j] % 2 == 0:
+        j += 1
+
+    if j == len(arr):
+        break
+
+    odd = arr[j]
+
+    while j > i:
+        arr[j] = arr[j - 1]
+        j -= 1
+
+    arr[i] = odd
+    i += 1
+
+print(arr)
