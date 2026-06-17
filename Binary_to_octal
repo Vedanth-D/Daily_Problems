@@ -7,9 +7,45 @@ work_copy = binary_string
 
 while work_copy != 0:
     digit_s = work_copy % 1000
-    octal_digit = digit_s % 8      # Shyam's logic
+    octal_digit = digit_s % 8      
     octalrep = octal_digit * power + octalrep
     work_copy //= 1000
     power *= 10
 
 print(f"({binary_string})2 = ({octalrep})8")
+
+
+    OR
+
+binary_string = int(input("Enter Binary Number"))
+
+power = 1
+work_copy = binary_string
+octal_rep = 0
+
+while work_copy != 0:
+  digit_s = work_copy % 1000
+
+  if digit_s == 0:
+    octal_digit = 0
+  elif digit_s == 1:
+    octal_digit = 1
+  elif digit_s == 10:
+    octal_digit = 2
+  elif digit_s == 11:
+        octal_digit = 3
+  elif digit_s == 100:
+      octal_digit = 4
+  elif digit_s == 101:
+      octal_digit = 5
+  elif digit_s == 110:
+      octal_digit = 6
+  elif digit_s == 111:
+      octal_digit = 7
+
+  octal_rep = octal_digit * power + octal_rep
+
+  work_copy //= 1000
+  power *= 10
+
+print(f"{binary_string} = {octal_rep}")
