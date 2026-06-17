@@ -1,0 +1,15 @@
+binary_string = int(input())
+
+# Priming
+power = 1
+octalrep = 0
+work_copy = binary_string
+
+while work_copy != 0:
+    digit_s = work_copy % 1000
+    octal_digit = digit_s % 8      # Shyam's logic
+    octalrep = octal_digit * power + octalrep
+    work_copy //= 1000
+    power *= 10
+
+print(f"({binary_string})2 = ({octalrep})8")
