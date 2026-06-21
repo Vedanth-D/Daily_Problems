@@ -1,0 +1,11 @@
+def countOnBits(number):
+  number = abs(number)
+  return countOnBitsHelper(number)
+
+def countOnBitsHelper(number):
+  if number == 0:
+    return 0
+  return (number % 2) + countOnBitsHelper(number // 2)
+
+number = int(input("Enter the number: "))
+print(countOnBits(number))
