@@ -1,0 +1,22 @@
+def divQuo(dividend, divisor):
+  if divisor == 0:
+    return "Division by zero not possible"
+
+  if (dividend < 0) ^ (divisor < 0):
+    sign = -1
+  else:
+    sign = 1
+
+  dividend = abs(dividend)
+  divisor = abs(divisor)
+  return sign * divQuoHelper(dividend, divisor)
+
+def divQuoHelper(dividend, divisor):
+  if dividend < divisor:
+    return 0
+
+  return 1 + divQuoHelper(dividend - divisor, divisor)
+
+dividend = int(input("Enter the dividend: "))
+divisor = int(input("Enter the divisor: "))
+print(divQuo(dividend, divisor))
