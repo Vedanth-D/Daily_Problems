@@ -1,0 +1,18 @@
+def divRemainder(dividend, divisor):
+  if divisor == 0:
+    return "Division by zero not possible"
+
+  sign = -1 if (dividend < 0) ^ (divisor < 0) else 1
+  dividend = abs(dividend)
+  divisor = abs(divisor)
+  return sign * divRemainderHelper(dividend, divisor)
+
+def divRemainderHelper(dividend, divisor):
+  if dividend < divisor:
+    return dividend
+  
+  return divRemainderHelper(dividend - divisor, divisor)
+
+dividend = int(input("Enter the dividend: "))
+divisor = int(input("Enter the divisor: "))
+print(divRemainder(dividend, divisor))
