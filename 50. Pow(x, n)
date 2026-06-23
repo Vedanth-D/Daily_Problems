@@ -1,0 +1,33 @@
+class Solution(object):
+    def myPow(self, x, n):
+        if n == 1:
+            return x
+        if n == 0:
+            return 1
+        if x == 1:
+            return 1
+        if x == 0:
+            return 0
+        
+        is_expo_negative = n < 0
+
+        if not is_expo_negative:
+            res = self.myPow_Helper(x, n)
+        else:
+            res = self.myPow_Helper(x, -n)
+
+        if is_expo_negative:
+            return 1 / res
+        else:
+            return res
+
+    def myPow_Helper(self, x, n):
+        if n == 1:
+            return x
+
+        if n % 2 == 0:
+            return self.myPow_Helper(x * x, n // 2)
+        else:
+            return x * self.myPow_Helper(x, n - 1)
+
+    
