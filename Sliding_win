@@ -1,0 +1,54 @@
+import random
+
+
+def print_array(arr, si, li):
+    # si -> start index
+    # li -> last index
+
+    for arr_ind in range(si, li + 1):
+        print(f"{arr[arr_ind]:02d}", end=" ")
+
+    print()
+
+
+noe = int(input("Enter number of elements: "))
+win_size = int(input("Enter window size: "))
+
+arr = []
+
+for _ in range(noe):
+    fill_val = random.randint(0, 99)
+    arr.append(fill_val)
+
+arr_size = len(arr)
+
+print_array(arr, 0, arr_size - 1)
+
+# Calculate first window sum
+win_tot = 0
+
+for win_start in range(win_size):
+    win_tot += arr[win_start]
+
+max_win_tot = win_tot
+max_win_begin = 0
+
+# Slide the window
+win_start = 1
+win_end = win_size
+
+while win_end < arr_size:
+
+    win_tot -= arr[win_start - 1]
+    win_tot += arr[win_end]
+
+    if win_tot > max_win_tot:
+        max_win_tot = win_tot
+        max_win_begin = win_start
+
+    win_start += 1
+    win_end += 1
+
+print_array(arr,
+            max_win_begin,
+            max_win_begin + (win_size - 1))
