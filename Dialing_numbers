@@ -1,0 +1,105 @@
+s = input().upper()
+
+keypad = {
+    'A': "2",    'B': "22",   'C': "222",
+    'D': "3",    'E': "33",   'F': "333",
+    'G': "4",    'H': "44",   'I': "444",
+    'J': "5",    'K': "55",   'L': "555",
+    'M': "6",    'N': "66",   'O': "666",
+    'P': "7",    'Q': "77",   'R': "777",   'S': "7777",
+    'T': "8",    'U': "88",   'V': "888",
+    'W': "9",    'X': "99",   'Y': "999",   'Z': "9999",
+    ' ': "0"
+}
+
+ans = []
+
+for ch in s:
+    ans.append(keypad[ch])
+
+print(" ".join(ans))
+
+output:
+vedanth
+888 33 3 2 66 8 44
+
+--------------------------------------------------------------------------------
+s = input().split()
+
+keypad = [
+    " ",
+    "",
+    "ABC",
+    "DEF",
+    "GHI",
+    "JKL",
+    "MNO",
+    "PQRS",
+    "TUV",
+    "WXYZ"
+]
+
+ans = ""
+
+for group in s:
+    ans += keypad[int(group[0])][len(group)-1]
+
+print(ans)
+
+output:
+777 5 33 6 5
+RJEMJ
+
+----------------------------------------------------------------------
+
+s = input().split()
+
+ans = ""
+
+for group in s:
+    if group == "0":
+        ans += " "
+    else:
+        digit = int(group[0])
+        press = len(group)
+
+        if digit <= 6:
+            ch = chr(ord('A') + (digit - 2) * 3 + press - 1)
+        elif digit == 7:
+            ch = chr(ord('P') + press - 1)
+        elif digit == 8:
+            ch = chr(ord('T') + press - 1)
+        else:   # 9
+            ch = chr(ord('W') + press - 1)
+
+        ans += ch
+
+print(ans)
+
+---------------------------------------------------------------------------------------------
+
+s = input().split()
+
+keypad = {
+    '2': "ABC",
+    '3': "DEF",
+    '4': "GHI",
+    '5': "JKL",
+    '6': "MNO",
+    '7': "PQRS",
+    '8': "TUV",
+    '9': "WXYZ",
+    '0': " "
+}
+
+ans = ""
+
+for group in s:
+    count = 1
+    for ch in keypad[group[0]]:
+        if count == len(group):
+            ans += ch
+            break
+        count += 1
+
+print(ans)
