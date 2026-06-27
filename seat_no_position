@@ -1,0 +1,34 @@
+seat = int(input())
+
+row = (seat - 1) // 6
+row_letters  = chr(ord('A') + row)
+
+odd = [
+    "Left Window",
+    "Left Middle",
+    "Left Aisle",
+    "Right Aisle",
+    "Right Middle",
+    "Right Window"
+]
+
+even = [
+    "Right Window",
+    "Right Middle",
+    "Right Aisle",
+    "Left Aisle",
+    "Left Middle",
+    "Left Window"
+]
+
+position = (seat - 1) % 6
+
+if row % 2 == 0:
+  print(row_letters, odd[position])
+else:
+  print(row_letters, even[position])
+
+----------
+output:
+42
+G Right Window
